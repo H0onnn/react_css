@@ -25,17 +25,10 @@ const CourseInput = (props) => {
 
   return (
     <form onSubmit={formSubmitHandler}>
-      <div className="form-control">
-        {/* 조건에 따른 동적 inline style 설정 */}
-        <label style={{ color: !isValid ? "red" : "black" }}>Course Goal</label>
-        <input
-          style={{
-            borderColor: !isValid ? "red" : "#ccc",
-            backgroundColor: !isValid ? "pink" : "transparent",
-          }}
-          type="text"
-          onChange={goalInputChangeHandler}
-        />
+      {/* 템플릿 리터럴을 이용한 동적 inline style class 추가하기 */}
+      <div className={`form-control ${!isValid ? "invalid" : ""}`}>
+        <label>Course Goal</label>
+        <input type="text" onChange={goalInputChangeHandler} />
       </div>
       <Button type="submit">Add Goal</Button>
     </form>
